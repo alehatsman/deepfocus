@@ -45,7 +45,7 @@
   .modes__item--active {
     background: var(--bg-color);
     transition: background 2s ease;
-    filter: brightness(105%);
+    filter: brightness(120%);
     border-radius: 10px;
   }
 </style>

@@ -117,7 +117,7 @@
   button {
     background-color: var(--bg-color);
     transition: background-color 1s ease;
-    filter: brightness(105%);
+    filter: brightness(120%);
     padding: 15px 50px;
     opacity: 0.89;
     border: none;

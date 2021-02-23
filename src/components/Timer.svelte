@@ -46,7 +46,7 @@
   }
 
   .timer__time {
-    font-family: Source Code Pro, monospace;
+    font-family: monospace;
     font-style: normal;
     font-weight: 200;
     font-size: 170px;
