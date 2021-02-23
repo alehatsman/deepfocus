@@ -34,6 +34,9 @@
   let progress = 0 
   let intervalId = null
 
+  const bellAudio = new Audio('/sounds/bell.mp3');
+  const clickAudio = new Audio('/sounds/click.mp3');
+
   const onModeChange = (mode: string) => {
     stop()
     progress = 0
@@ -51,6 +54,7 @@
       progress = 100 - time / defaultTime * 100
       if (time === 0) {
         stop()
+        bellAudio.play()
       }
     }, 1000)
   }
@@ -61,7 +65,6 @@
     time = defaultTime
   }
 
-  const clickAudio = new Audio('/sounds/click.mp3');
   const toggle = () => {
     clickAudio.play();
     if (intervalId) {
@@ -133,5 +136,6 @@
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
+    cursor: pointer;
   }
 </style>

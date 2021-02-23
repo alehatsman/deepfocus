@@ -39,6 +39,7 @@
     text-decoration: none;
     padding: 10px 25px;
     user-select: none;
+    cursor: pointer;
   }
 
   .modes__item--active {
