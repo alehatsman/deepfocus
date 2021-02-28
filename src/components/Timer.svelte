@@ -1,17 +1,9 @@
 <script type="ts">
   import Circle from './Circle.svelte'
+  import formatTime from '../formatTime'
+
   export let time: number
   export let progress: number
-
-  const formatTime = (v) => {
-    return v < 10 ? `0${v}` : `${v}` 
-  }
-
-  const format = (time) => {
-    const mins = Math.floor(time / 60)
-    const seconds = time % 60
-    return `${formatTime(mins)}:${formatTime(seconds)}`
-  }
 </script>
 
 <div class="timer">
@@ -25,7 +17,7 @@
   </div>
   -->
   <span class="timer__time">
-    {format(time)}
+    {formatTime(time)}
   </span>
 </div>
 

@@ -16,7 +16,6 @@
   })
 
   afterUpdate(() => {
-    console.log('afterUpdate ', theme)
     setRootColors(theme)
   })
 </script>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import formatTime from './formatTime'
   import Modes from './components/Modes.svelte'
   import Timer from './components/Timer.svelte'
   import Theme from './components/Theme.svelte'
@@ -33,6 +34,8 @@
   let time = defaultTime
   let progress = 0 
   let intervalId = null
+  let title = 'Deepfocus'
+  $: document.title = title
 
   const bellAudio = new Audio('/sounds/bell.mp3');
   const clickAudio = new Audio('/sounds/click.mp3');
@@ -47,22 +50,26 @@
     theme = m.colors
   }
 
+  const onTick = () => {
+    time -= 1
+    // progress = 100 - time / defaultTime * 100
+    title = `${formatTime(time)} - Deepfocus`
+
+    if (time === 0) {
+      stop()
+      bellAudio.play()
+    }
+  }
+
   const start = () => {
-    console.log('start')
-    intervalId = setInterval(() => {
-      time -= 1
-      progress = 100 - time / defaultTime * 100
-      if (time === 0) {
-        stop()
-        bellAudio.play()
-      }
-    }, 1000)
+    intervalId = setInterval(onTick, 1000)
   }
 
   const stop = () => {
     clearInterval(intervalId)
     intervalId = null
     time = defaultTime
+    title = 'Deepfocus'
   }
 
   const toggle = () => {
